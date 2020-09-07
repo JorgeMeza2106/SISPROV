@@ -1,24 +1,30 @@
 <div class="col-md-4 offset-md-2">
     <div class="card">
         <div class="card-body">
-            <h5 class="card-title">Agrega Producto</h5>
+            <h5 class="card-title">{{ editFlag ? 'Actualizar Producto' : 'Agrega Producto'}}</h5>
             <form>
                 <div class="form-group">
-                    <input type="number" name="ruc" placeholder="Ingrese Nombre" class="form-control" autofocus>
+                    <input type="text" name="nombre" [(ngModel)]="producto.nombre" placeholder="Ingrese Nombre" class="form-control" autofocus>
                 </div>
                 <div class="form-group">
-                    <input type="text" name="nombre" placeholder="Ingrese Descripcion" class="form-control" autofocus>
+                    <input type="text" name="descrip" [(ngModel)]="producto.descrip" placeholder="Ingrese Descripcion" class="form-control" autofocus>
                 </div>
                 <div class="form-group">
-                    <input type="text" name="nombre" placeholder="Ingrese Precio" class="form-control" autofocus>
+                    <input type="number" name="precio" [(ngModel)]="producto.precio" placeholder="Ingrese Precio" class="form-control" autofocus>
                 </div>
                 <div class="form-group">
-                    <input type="text" name="nombre" placeholder="Ingrese Stock" class="form-control" autofocus>
+                    <input type="number" name="stock" [(ngModel)]="producto.stock" placeholder="Ingrese Stock" class="form-control" autofocus>
                 </div>
                 <div class="form-group">
-                    <input type="text" name="nombre" placeholder="Ingrese Imagen" class="form-control" autofocus>
+                    <select class="custom-select" name="categoria.id_cat" [(ngModel)]="producto.categoria.id_cat" autofocus>
+                        <option value="0">Seleccione Categoria</option>
+                        <option *ngFor="let cat of categorias" [(value)]="cat.id_cat">{{cat.nombre}}</option>
+                    </select>
                 </div>
-                <button class="btn btn-success btn-block">Guardar</button>
+                <div class="form-group">
+                    <input type="text" name="img" [(ngModel)]="producto.img" placeholder="Ingrese Imagen" class="form-control" autofocus>
+                </div>
+                <button class="btn btn-success btn-block" (click)="btnSubmit()">{{ editFlag ? 'Editar' : 'Guardar'}}</button>
             </form>
         </div>
     </div>
@@ -26,11 +32,14 @@
 
 <div class="col-md-4">
     <div class="card">
-        <img src="../../../assets/imagenes/molde-dental.jpg" class="card-img-top" alt="...">
+        <img [src]="producto.img == '' ? '/assets/imagenes/no-img.jpg' : producto.img" class="card-img-top" alt="...">
         <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text"></p>
-            <a href="#" class="btn btn-info btn-block">Vista previa</a>
+            <h5 class="card-title">{{producto.nombre == "" ? 'Nombre' : producto.nombre}}</h5>
+            <div class="card-text">
+                <p>{{producto.descrip == "" ? 'Descripcion' : producto.descrip}}</p>
+                <p>{{producto.precio == 0 ? '' : 'Precio: '+producto.precio}}</p>
+            </div>
+            <button class="btn btn-info btn-block" disabled>Vista previa</button>
         </div>
     </div>
 </div>

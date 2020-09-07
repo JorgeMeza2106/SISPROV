@@ -16,6 +16,10 @@ const routes: Routes = [
   {
     path: 'form-producto',
     component: FormProductoComponent
+  },
+  {
+    path: 'form-producto/:id',
+    component: FormProductoComponent
   }
 ];
 

@@ -1,1 +1,86 @@
-<p>lista-producto works!</p>
+<mat-grid-list cols="4" rowHeight="60px">
+    <mat-grid-tile [colspan]="4">
+        <mat-form-field>
+            <mat-label>Buscar</mat-label>
+            <input matInput (keyup)="applyFilter($event)" placeholder="Ejem. Bisturi">
+            <mat-icon matSuffix inline="true">search</mat-icon>
+        </mat-form-field>
+        <span class="example-spacer"></span>
+        <button mat-flat-button color="primary" (click)="btnAgregar()">
+            Agregar
+        </button>
+    </mat-grid-tile>
+</mat-grid-list>
+
+<div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort>
+        <!-- ID Column -->
+        <ng-container matColumnDef="codigo">
+            <th style="width: 8%;" mat-header-cell *matHeaderCellDef mat-sort-header> Còdigo </th>
+            <td style="width: 8%;" mat-cell *matCellDef="let row"> {{row.codigo}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="nombre">
+            <th style="width: 10%;" mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </th>
+            <td style="width: 10%;" mat-cell *matCellDef="let row"> {{row.nombre}} </td>
+        </ng-container>
+
+        <!-- Direccion Column -->
+        <ng-container matColumnDef="descripcion">
+            <th style="width: 30%;" mat-header-cell *matHeaderCellDef mat-sort-header> Descripciòn </th>
+            <td style="width: 30%;" mat-cell *matCellDef="let row"> {{row.descripcion}} </td>
+        </ng-container>
+
+        <!-- Comuna Column -->
+        <ng-container matColumnDef="nomb_cat">
+            <th style="width: 10%;" mat-header-cell *matHeaderCellDef mat-sort-header> Categoria </th>
+            <td style="width: 10%;" mat-cell *matCellDef="let row"> {{row.nomb_cat}} </td>
+        </ng-container>
+
+        <!-- Ciudad Column -->
+        <ng-container matColumnDef="precio">
+            <th style="width: 8%;" mat-header-cell *matHeaderCellDef mat-sort-header> Precio </th>
+            <td style="width: 8%;" mat-cell *matCellDef="let row"> {{row.precio}} </td>
+        </ng-container>
+
+        <!-- Region Column -->
+        <ng-container matColumnDef="stock">
+            <th style="width: 8%;" mat-header-cell *matHeaderCellDef mat-sort-header> Stock </th>
+            <td style="width: 8%;" mat-cell *matCellDef="let row"> {{row.stock}} </td>
+        </ng-container>
+
+        <!-- Action Column -->
+        <ng-container matColumnDef="action">
+            <th style="width: 15%;" mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
+            <td style="width: 15%;" mat-cell *matCellDef="let row" style="text-align: center;">
+                <button class="button-action" mat-flat-button color="accent" (click)="btnEditar(row)">
+                    Editar
+                </button>
+                <button class="button-action" mat-flat-button color="warn" (click)="btnBorrar(row)">
+                    Borrar
+                </button>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="loading">
+            <td style="text-align: center;font-style: italic;" mat-footer-cell *matFooterCellDef colspan="8">
+                Cargando, espere por favor...
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="noData">
+            <td style="text-align: center;font-style: italic;" mat-footer-cell *matFooterCellDef colspan="8">
+                No existe información.
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        <tr mat-footer-row *matFooterRowDef="['loading']" [hidden]="(dataSource.data.length != 0) || noDataProducto">
+        </tr>
+        <tr mat-footer-row *matFooterRowDef="['noData']" [hidden]="!noDataProducto"></tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+</div>
