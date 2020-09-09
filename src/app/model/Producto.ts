@@ -1,10 +1,10 @@
 import { Categoria } from './Categoria';
 
 export interface Producto{
-    codigo: string,
+    id_prod: number
     nombre: string,
-    descripcion: string,
-    precio: string,
+    descrip: string,
+    precio: number,
     stock: number,
     id_cat: number,
     nomb_cat: string,

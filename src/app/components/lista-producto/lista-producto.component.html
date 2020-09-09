@@ -15,9 +15,9 @@
 <div class="mat-elevation-z8">
     <table mat-table [dataSource]="dataSource" matSort>
         <!-- ID Column -->
-        <ng-container matColumnDef="codigo">
+        <ng-container matColumnDef="id_prod">
             <th style="width: 8%;" mat-header-cell *matHeaderCellDef mat-sort-header> Còdigo </th>
-            <td style="width: 8%;" mat-cell *matCellDef="let row"> {{row.codigo}} </td>
+            <td style="width: 8%;" mat-cell *matCellDef="let row"> {{row.id_prod}} </td>
         </ng-container>
 
         <!-- Name Column -->
@@ -27,9 +27,9 @@
         </ng-container>
 
         <!-- Direccion Column -->
-        <ng-container matColumnDef="descripcion">
+        <ng-container matColumnDef="descrip">
             <th style="width: 30%;" mat-header-cell *matHeaderCellDef mat-sort-header> Descripciòn </th>
-            <td style="width: 30%;" mat-cell *matCellDef="let row"> {{row.descripcion}} </td>
+            <td style="width: 30%;" mat-cell *matCellDef="let row"> {{row.descrip}} </td>
         </ng-container>
 
         <!-- Comuna Column -->

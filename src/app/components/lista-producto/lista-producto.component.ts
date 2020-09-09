@@ -15,7 +15,7 @@ import { ProductoService } from '../../services/producto.service';
 export class ListaProductoComponent implements OnInit {
 
   productos: Producto[] = [];
-  displayedColumns: string[] = ['codigo', 'nombre', 'descripcion', 'nomb_cat','precio', 'stock','action'];
+  displayedColumns: string[] = ['id_prod', 'nombre', 'descrip', 'nomb_cat','precio', 'stock','action'];
   dataSource = new MatTableDataSource(this.productos);
   noDataProducto: boolean = false;
 
@@ -49,10 +49,7 @@ export class ListaProductoComponent implements OnInit {
         if (res == null) {
           this.noDataProducto = true;
         }else{
-
-          for (let index = 0; index < res.length; index++) {
-            this.productos.push(this.productoService.formatoProductoModel(res[index]));
-          }
+          this.productos = res;
         }
         this.dataSource = new MatTableDataSource(this.productos);
         this.dataSource.sort = this.sort;

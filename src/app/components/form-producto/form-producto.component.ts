@@ -14,15 +14,13 @@ import { ProductoService } from 'src/app/services/producto.service';
 })
 export class FormProductoComponent implements OnInit {
 
-  producto: ProductoRegistro = {
+  producto: Producto = {
     id_prod: 0,
     nombre: '',
     descrip: '',
-    categoria: {
-      id_cat: 0,
-      nombre: '',
-      descrip: ''
-    },
+    id_cat: 0,
+    nomb_cat: '',
+    descrip_cat: '',
     stock: 0,
     precio: 0,
     img: ''

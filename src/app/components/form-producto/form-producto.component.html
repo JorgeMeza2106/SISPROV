@@ -16,7 +16,7 @@
                     <input type="number" name="stock" [(ngModel)]="producto.stock" placeholder="Ingrese Stock" class="form-control" autofocus>
                 </div>
                 <div class="form-group">
-                    <select class="custom-select" name="categoria.id_cat" [(ngModel)]="producto.categoria.id_cat" autofocus>
+                    <select class="custom-select" name="categoria.id_cat" [(ngModel)]="producto.id_cat" autofocus>
                         <option value="0">Seleccione Categoria</option>
                         <option *ngFor="let cat of categorias" [(value)]="cat.id_cat">{{cat.nombre}}</option>
                     </select>
