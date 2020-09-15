@@ -63,7 +63,7 @@ export class ListaProductoComponent implements OnInit {
 
   btnEditar(producto){
     console.log(producto);
-    var url = '/form-producto/'+producto.codigo;
+    var url = '/form-producto/'+producto.id_prod;
     this.router.navigate([url]);
   }
 

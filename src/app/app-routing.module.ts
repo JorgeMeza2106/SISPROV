@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ListaProductoComponent } from './components/lista-producto/lista-producto.component';
 import { FormProductoComponent } from './components/form-producto/form-producto.component';
+import { ListaProformaComponent } from './components/lista-proforma/lista-proforma.component';
 
 const routes: Routes = [
   {
@@ -20,6 +21,10 @@ const routes: Routes = [
   {
     path: 'form-producto/:id',
     component: FormProductoComponent
+  },
+  {
+    path: 'lista-proforma',
+    component: ListaProformaComponent
   }
 ];
 

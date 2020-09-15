@@ -10,13 +10,15 @@ import { ListaProductoComponent } from './components/lista-producto/lista-produc
 import { NavegacionComponent } from './components/navegacion/navegacion.component';
 import { FormProductoComponent } from './components/form-producto/form-producto.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ListaProformaComponent } from './components/lista-proforma/lista-proforma.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListaProductoComponent,
     NavegacionComponent,
-    FormProductoComponent
+    FormProductoComponent,
+    ListaProformaComponent
   ],
   imports: [
     BrowserModule,
